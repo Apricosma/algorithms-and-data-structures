@@ -1,4 +1,3 @@
-﻿
 // get number of words
 Console.WriteLine("Please enter a number: ");
 string result = Console.ReadLine();
