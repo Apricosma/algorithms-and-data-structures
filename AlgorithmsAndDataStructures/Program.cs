@@ -4,6 +4,7 @@ Console.WriteLine("Please enter a number: ");
 string result = Console.ReadLine();
 int numberOfWords;
 bool isNumber = int.TryParse(result, out numberOfWords);
+// while input is not a number - repeat
 while (!isNumber)
 {
     Console.WriteLine("Please enter a number: ");
@@ -13,13 +14,13 @@ while (!isNumber)
 
 // initialize array with n words
 string[] stringArray = new string[numberOfWords];
-Console.WriteLine("Please enter " + numberOfWords + " words");
+Console.WriteLine("Please enter " + numberOfWords + " words\nInput is not case-sensitive");
 Console.WriteLine(" ");
 
 // pushes n words to array
 for (int i = 0; i < stringArray.Length; i++)
 {
-    stringArray[i] = Console.ReadLine();
+    stringArray[i] = Console.ReadLine().ToLower();
 }
 Console.WriteLine(" ");
 
@@ -33,12 +34,12 @@ Console.WriteLine(" ");
 
 // sets the search term
 Console.WriteLine("Please enter a character to search: ");
-char searchCharacter = Console.ReadKey().KeyChar;
+char searchCharacter = Char.ToLower(Console.ReadKey().KeyChar);
 
 while (!Char.IsLetter(searchCharacter))
 {
     Console.WriteLine("Please input a LETTER");
-    searchCharacter = Console.ReadKey().KeyChar;    
+    searchCharacter = Char.ToLower(Console.ReadKey().KeyChar);    
 }
 Console.WriteLine(" ");
 
