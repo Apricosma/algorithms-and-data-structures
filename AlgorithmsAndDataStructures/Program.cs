@@ -1,7 +1,15 @@
 ﻿
 // get number of words
 Console.WriteLine("Please enter a number: ");
-int numberOfWords = Int32.Parse(Console.ReadLine());
+string result = Console.ReadLine();
+int numberOfWords;
+bool isNumber = int.TryParse(result, out numberOfWords);
+while (!isNumber)
+{
+    Console.WriteLine("Please enter a number: ");
+    result = Console.ReadLine();
+    isNumber = int.TryParse(result, out numberOfWords);
+}
 
 // initialize array with n words
 string[] stringArray = new string[numberOfWords];
@@ -25,7 +33,13 @@ Console.WriteLine(" ");
 
 // sets the search term
 Console.WriteLine("Please enter a character to search: ");
-char searchCharacter = Char.Parse(Console.ReadLine());
+char searchCharacter = Console.ReadKey().KeyChar;
+
+while (!Char.IsLetter(searchCharacter))
+{
+    Console.WriteLine("Please input a LETTER");
+    searchCharacter = Console.ReadKey().KeyChar;    
+}
 Console.WriteLine(" ");
 
 // concatenates the array of strings into a single string for iteration
