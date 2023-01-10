@@ -37,3 +37,12 @@ foreach (char n in concatString)
     if (n == searchCharacter) count++;
 }
 Console.WriteLine("Your character " + "'" + searchCharacter + "'" + " shows up " + count + " times ");
+Console.WriteLine(" ");
+
+double lengthOfString = concatString.Length;
+double percentage = Convert.ToDouble(count) / lengthOfString;
+
+if (percentage > 0.25)
+{
+    Console.WriteLine(searchCharacter + " Shows up more than 25% of the total number of characters");
+}
