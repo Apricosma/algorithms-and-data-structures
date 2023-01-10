@@ -20,7 +20,12 @@ Console.WriteLine(" ");
 // pushes n words to array
 for (int i = 0; i < stringArray.Length; i++)
 {
-    stringArray[i] = Console.ReadLine().ToLower();
+    stringArray[i] = Console.ReadLine().ToLower().Trim();
+    if (stringArray[i].Any(Char.IsWhiteSpace))
+    {
+        Console.WriteLine("Do not use spaces in words, enter previous word again");
+        stringArray[i] = Console.ReadLine().ToLower().Trim();
+    }
 }
 Console.WriteLine(" ");
 
